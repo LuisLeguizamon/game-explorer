@@ -7,4 +7,4 @@ GameExplorer is a program designed to provide a list of free games and allow use
 * [NPM](https://npmjs.com) - version 9.5.1
 
 ## Source data
-* [FREETOGAME API] (https://www.freetogame.com/api-doc)
+* [FREETOGAME API](https://www.freetogame.com/api-doc)
