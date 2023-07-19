@@ -1,5 +1,5 @@
+import { GameDataService } from './services/game-data.service';
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +10,15 @@ export class AppComponent {
   
   games: any;
 
-  constructor(private http: HttpClient){}
+  constructor(private gameDataService: GameDataService){}
   
   ngOnInit() {
-    const corsurl = 'https://cors-anywhere.herokuapp.com/';
-    const baseurl = 'https://www.freetogame.com/api/';
-    const endpoint = 'games';
-    const url = corsurl+baseurl+endpoint; 
+    this.getGames();
+  }
 
-    this.http.get(url).subscribe(data => {
-      this.games = data;
+  getGames() {
+    this.gameDataService.getGames().subscribe((games) =>{
+      this.games = games;
     });
   }
 }
