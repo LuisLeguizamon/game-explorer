@@ -1,17 +1,11 @@
-<div>
-  <div class="container mt-5">
-    <h3>Games</h3>
-    <div class="row">
-      <ng-container *ngFor="let game of gamesPortion; index as i">
-        <div class="col-md-4 col-sm-1">
-          <div class="card mb-4">
-            <img class="card-img-top" src="{{ game.thumbnail }}" alt="Card image cap">
-            <div class="card-body">
-              <h6 class="card-title text-truncate">{{ game.title }}</h6>
-            </div>
-          </div>
-        </div>
-      </ng-container>
-    </div>
+<div class="container mt-5">
+  <h3>Games</h3>
+  <div class="row">
+    <ng-container *ngFor="let game of gamesPortion">
+      <app-game-card
+        class="col-md-4 col-sm-1"
+        [game]="game">
+      </app-game-card>
+    </ng-container>
   </div>
 </div>
