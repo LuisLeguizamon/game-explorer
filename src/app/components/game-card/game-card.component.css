@@ -1,0 +1,14 @@
+.g-link{
+    color:rgb(102, 16, 242);
+    text-decoration: none;
+}
+:hover .g-link{
+    color:rgb(71, 1, 85);
+    transition: all 0.5s ease-in-out;
+}
+.g-border-grey{
+    border-color: #dfdfe3;
+}
+.g-grey{
+    color:#747579;
+}
