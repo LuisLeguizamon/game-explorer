@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GameCardComponent } from './components/game-card/game-card.component';
+import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameCardComponent
+    GameCardComponent,
+    LoadingModalComponent
   ],
   imports: [
     BrowserModule,

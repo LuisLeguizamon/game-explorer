@@ -1,21 +1,12 @@
 <div class="g-background">
   <div class="container pt-5">
 
-    <h1 class="text-center mb-4">Games</h1>
+    <h1 class="text-center mb-4">
+      Games
+    </h1>
 
-    <!-- Use the Bootstrap modal component as the loading overlay -->
-    <div class="modal" [ngClass]="{'d-block': loading}">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-transparent border-0">
-          <div class="modal-body text-center">
-            <!-- Use the Bootstrap spinner class for the loading spinner -->
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-loading-modal *ngIf="loading">
+    </app-loading-modal>
 
     <!-- Show the content when data is available and loading is complete -->
     <div *ngIf="!loading" class="row">
