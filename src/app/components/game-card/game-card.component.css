@@ -3,7 +3,7 @@
     text-decoration: none;
 }
 :hover .g-link{
-    color:rgb(71, 1, 85);
+    color:rgb(102, 16, 250);
     transition: all 0.5s ease-in-out;
 }
 .g-border-grey{
@@ -11,4 +11,9 @@
 }
 .g-grey{
     color:#747579;
+}
+:hover .g-card-hover{
+    color: rgb(102, 16, 242);
+    box-shadow: 8px 8px 8px rgba(71, 1, 85, 0.2);
+    transition: all 0.5s ease-in-out;
 }
