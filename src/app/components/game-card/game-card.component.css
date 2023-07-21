@@ -1,3 +1,11 @@
+.card-title{
+    color: black;
+    transition: all 0.5s ease-in-out;
+}
+:hover .card-title{
+    color: rgb(102, 16, 242);
+    transition: all 0.5s ease-in-out;
+}
 .g-link{
     color:rgb(102, 16, 242);
     text-decoration: none;
@@ -12,8 +20,10 @@
 .g-grey{
     color:#747579;
 }
-:hover .g-card-hover{
-    color: rgb(102, 16, 242);
+.g-card-shadow{
+    transition: all 0.5s ease-in-out;
+}
+:hover .g-card-shadow{
     box-shadow: 8px 8px 8px rgba(71, 1, 85, 0.2);
     transition: all 0.5s ease-in-out;
 }
