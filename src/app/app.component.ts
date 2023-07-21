@@ -19,9 +19,18 @@ export class AppComponent {
   }
 
   getGames() {
-    this.gameDataService.getGames().subscribe((games) =>{
-      this.gamesAll = games;
-      this.gamesPortion = this.gamesAll.slice(0, this.pageSize);
+    this.gameDataService
+    .getGames()
+    .subscribe({
+      next: (games) => {
+        this.gamesAll = games;
+        this.gamesPortion = this.gamesAll.slice(0, this.pageSize);
+      },
+      error: (error) => {
+        console.log(error);
+        alert("An error has ocurred");
+      },
+      complete: () => console.log('done'),
     });
   }
 
