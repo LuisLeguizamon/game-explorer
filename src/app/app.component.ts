@@ -11,6 +11,7 @@ export class AppComponent {
   gamesAll: any;
   gamesPortion: any;
   pageSize: number = 10;
+  loading: boolean = true;
 
   constructor(private gameDataService: GameDataService){}
   
@@ -30,7 +31,7 @@ export class AppComponent {
         console.log(error);
         alert("An error has ocurred");
       },
-      complete: () => console.log('done'),
+      complete: () => this.loading = false,
     });
   }
 
@@ -42,6 +43,7 @@ export class AppComponent {
 
     // Check if the user has reached the bottom of the page
     if (scrollY + visibleHeight >= totalHeight) {
+      this.loading = true;
       // Calculate the current page number (add +1 to account for 0-based indexing)
       let pageNumber = Math.floor(scrollY/visibleHeight)+1;
 
@@ -52,6 +54,7 @@ export class AppComponent {
       if (nextPageGames.length > 0) {
         this.gamesPortion = this.gamesPortion.concat(nextPageGames);
       }
+      this.loading = false;
     }
   }
 }
