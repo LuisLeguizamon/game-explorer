@@ -5,10 +5,16 @@
       Games
     </h1>
 
+    <!-- Filters -->
+    <div class="input-group input-group-sm mb-3">
+      <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="onSearch()" placeholder="Search">
+    </div>
+
+    <!-- Loading -->
     <app-loading-modal *ngIf="loading">
     </app-loading-modal>
 
-    <!-- Show the content when data is available and loading is complete -->
+    <!-- Content -->
     <div *ngIf="!loading" class="row">
       <ng-container *ngFor="let game of gamesPortion">
         <app-game-card

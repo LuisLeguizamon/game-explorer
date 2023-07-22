@@ -1,5 +1,6 @@
 import { GameDataService } from './services/game-data.service';
 import { Component, HostListener } from '@angular/core';
+// import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ export class AppComponent {
   gamesPortion: any;
   pageSize: number = 10;
   loading: boolean = true;
+  searchTerm: string = '';
+  // searchTerm$ = new Subject<string>();TODO
 
   constructor(private gameDataService: GameDataService){}
   
@@ -56,5 +59,11 @@ export class AppComponent {
       }
       this.loading = false;
     }
+  }
+
+  onSearch() {
+    this.gamesPortion = this.gamesAll.filter((game: any) =>
+      game.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 }
