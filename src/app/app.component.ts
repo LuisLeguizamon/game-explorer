@@ -77,7 +77,11 @@ export class AppComponent {
   }
 
   onSearchByPlatform() {
-    this.getGames('platform', this.searchByPlatform);
+    if (this.searchByPlatform) {
+      this.getGames('platform', this.searchByPlatform);
+    } else {
+      this.getGames();
+    }
   }
 
   isObjectEmpty(): boolean {
