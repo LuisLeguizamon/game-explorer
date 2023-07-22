@@ -1,7 +1,7 @@
-<label for="filterByPlatform">Platform</label>
-<select id="filterByPlatform" class="form-select mb-3" (change)="onSelectChange($event.target)">
-    <ng-container *ngFor="let platform of platforms">
+<label for="filterBy">{{ label }}</label>
+<select id="filterBy" class="form-select mb-3" (change)="onSelectChange($event.target)">
+    <ng-container *ngFor="let option of options">
         <option value="">All</option>
-        <option value="{{ platform.key }}">{{ platform.value }}</option>
+        <option value="{{ option.key }}">{{ option.value }}</option>
     </ng-container>
 </select>

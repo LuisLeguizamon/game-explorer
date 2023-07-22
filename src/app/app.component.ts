@@ -13,16 +13,10 @@ export class AppComponent {
   gamesPortion: any = {};
   loading: boolean = true;
   pageSize: number = 10;
-  platforms: Array<any> = [];
   searchTerm: string = '';
   // searchTerm$ = new Subject<string>();TODO
 
-  constructor(private gameDataService: GameDataService){
-    this.platforms = [
-      { key: 'browser', value: 'Browser'},
-      { key:'pc', value: 'PC'}
-    ];
-  }
+  constructor(private gameDataService: GameDataService){}
   
   ngOnInit() {
     this.getGames();
@@ -75,9 +69,9 @@ export class AppComponent {
     );
   }
 
-  onSearchByPlatform(platformSelected: string) {
-    if (platformSelected) {
-      this.getGames('platform', platformSelected);
+  onSelect(queryParamType: string, optionSelected: string) {
+    if (optionSelected) {
+      this.getGames(queryParamType, optionSelected);
     } else {
       this.getGames();
     }

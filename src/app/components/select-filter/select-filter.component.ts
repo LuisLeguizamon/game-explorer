@@ -6,11 +6,24 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./select-filter.component.css']
 })
 export class SelectFilterComponent {
-  @Input() platforms: Array<any> = [];
+  @Input() searchType: string = '';
 
-  @Output() platformSelected = new EventEmitter<string>();
+  options: Array<any> = [];
+  label: string = '';
+
+  @Output() optionSelected = new EventEmitter<string>();
+
+  ngOnInit() {
+    if (this.searchType == 'platform') {
+      this.label = 'Platform';
+      this.options = [
+        { key: 'browser', value: 'Browser' },
+        { key: 'pc', value: 'PC' }
+      ];
+    }
+  }
 
   onSelectChange(eventTarget: any) {
-    this.platformSelected.emit(eventTarget.value);
+    this.optionSelected.emit(eventTarget.value);
   }
 }
