@@ -11,20 +11,28 @@ export class AppComponent {
   
   gamesAll: any;
   gamesPortion: any = {};
-  pageSize: number = 10;
   loading: boolean = true;
+  pageSize: number = 10;
+  platforms: Array<any> = [];
   searchTerm: string = '';
+  searchByPlatform: string = '';
   // searchTerm$ = new Subject<string>();TODO
 
-  constructor(private gameDataService: GameDataService){}
+  constructor(private gameDataService: GameDataService){
+    this.platforms = [
+      { key: 'browser', value: 'Browser'},
+      { key:'pc', value: 'PC'}
+    ];
+  }
   
   ngOnInit() {
     this.getGames();
   }
 
-  getGames() {
+  getGames(queryParamType?: string, queryParam?: string) {
+    this.loading = true;
     this.gameDataService
-    .getGames()
+    .getGames(queryParamType, queryParam)
     .subscribe({
       next: (games) => {
         this.gamesAll = games;
@@ -61,10 +69,15 @@ export class AppComponent {
     }
   }
 
+  // Filters
   onSearch() {
     this.gamesPortion = this.gamesAll.filter((game: any) =>
       game.title.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+  }
+
+  onSearchByPlatform() {
+    this.getGames('platform', this.searchByPlatform);
   }
 
   isObjectEmpty(): boolean {
