@@ -10,7 +10,7 @@ import { Component, HostListener } from '@angular/core';
 export class AppComponent {
   
   gamesAll: any;
-  gamesPortion: any;
+  gamesPortion: any = {};
   pageSize: number = 10;
   loading: boolean = true;
   searchTerm: string = '';
@@ -65,5 +65,9 @@ export class AppComponent {
     this.gamesPortion = this.gamesAll.filter((game: any) =>
       game.title.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+  }
+
+  isObjectEmpty(): boolean {
+    return Object.keys(this.gamesPortion).length === 0;
   }
 }
