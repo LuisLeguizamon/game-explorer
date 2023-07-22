@@ -15,7 +15,6 @@ export class AppComponent {
   pageSize: number = 10;
   platforms: Array<any> = [];
   searchTerm: string = '';
-  searchByPlatform: string = '';
   // searchTerm$ = new Subject<string>();TODO
 
   constructor(private gameDataService: GameDataService){
@@ -76,9 +75,9 @@ export class AppComponent {
     );
   }
 
-  onSearchByPlatform() {
-    if (this.searchByPlatform) {
-      this.getGames('platform', this.searchByPlatform);
+  onSearchByPlatform(platformSelected: string) {
+    if (platformSelected) {
+      this.getGames('platform', platformSelected);
     } else {
       this.getGames();
     }
