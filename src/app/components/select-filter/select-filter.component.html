@@ -1,7 +1,6 @@
 <label for="filterBy">{{ label }}</label>
 <select id="filterBy" class="form-select mb-3" (change)="onSelectChange($event.target)">
     <ng-container *ngFor="let option of options">
-        <option value="">All</option>
-        <option value="{{ option.key }}">{{ option.value }}</option>
+        <option value="{{ option }}">{{ option }}</option>
     </ng-container>
 </select>

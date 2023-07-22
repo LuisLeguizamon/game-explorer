@@ -7,8 +7,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SelectFilterComponent {
   @Input() searchType: string = '';
+  @Input() options: Array<any> = [];
 
-  options: Array<any> = [];
   label: string = '';
 
   @Output() optionSelected = new EventEmitter<string>();
@@ -16,10 +16,6 @@ export class SelectFilterComponent {
   ngOnInit() {
     if (this.searchType == 'platform') {
       this.label = 'Platform';
-      this.options = [
-        { key: 'browser', value: 'Browser' },
-        { key: 'pc', value: 'PC' }
-      ];
     }
   }
 
