@@ -3,24 +3,31 @@
 </h1>
 
 <!-- Filters -->
-<div class="mb-3">
-    <!-- Search by Platform -->
-    <app-select-filter
-        [searchType]="'platform'"
-        [options]="platformOptions"
-        (optionSelected)="onSelect('platform', $event)">
-    </app-select-filter>
-
-    <!-- Search by Genre -->
-    <app-select-filter
-        [searchType]="'genre'"
-        [options]="genreOptions"
-        (optionSelected)="onSelect('genre', $event)">
-    </app-select-filter>
-
-    <!-- Search by Title -->
-    <div class="input-group input-group-md mt-3">
-        <input type="text" class="form-control" (input)="onSearchInput($event)" placeholder="Search">
+<div class="mb-3 row">
+    <div class="col-md-3">
+        <!-- Search by Platform -->
+        <app-select-filter
+            [searchType]="'platform'"
+            [options]="platformOptions"
+            (optionSelected)="onSelect('platform', $event)">
+        </app-select-filter>
+    </div>
+    <div class="col-md-3">
+        <!-- Search by Genre -->
+        <app-select-filter
+            [searchType]="'genre'"
+            [options]="genreOptions"
+            (optionSelected)="onSelect('genre', $event)">
+        </app-select-filter>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <!-- Search by Title -->
+        <label></label>
+        <div class="input-group input-group-md">
+            <span class="input-group-text bg-white"><i class="bi bi-search fs-5"></i></span>
+            <input type="text" class="form-control border-start-0" (input)="onSearchInput($event)" placeholder="Search">
+        </div>
     </div>
 </div>
 
