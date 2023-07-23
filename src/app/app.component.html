@@ -22,7 +22,7 @@
 
       <!-- Search by Title -->
       <div class="input-group input-group-md mt-3">
-        <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="onSearch()" placeholder="Search">
+        <input type="text" class="form-control" (input)="onSearchInput($event)" placeholder="Search">
       </div>
     </div>
 

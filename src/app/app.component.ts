@@ -1,7 +1,8 @@
 import { Game } from './models/games.model';
 import { GameDataService } from './services/game-data.service';
 import { Component, HostListener } from '@angular/core';
-// import { Subject } from 'rxjs';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -14,15 +15,22 @@ export class AppComponent {
   gamesPortion: any = {};
   loading: boolean = true;
   pageSize: number = 10;
-  searchTerm: string = '';
+  private searchInput$ = new Subject<string>();
+  private unsubscribe$ = new Subject<void>();
+
   genreOptions: Array<any> = [];
   platformOptions: Array<any> = [];
-  // searchTerm$ = new Subject<string>();TODO
 
   constructor(private gameDataService: GameDataService){}
   
   ngOnInit() {
     this.getGames();
+    this.subscribeToSearchInput();
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   getGames(queryParamType?: string, queryParam?: string) {
@@ -68,9 +76,20 @@ export class AppComponent {
   }
 
   // Filters
-  onSearch() {
+  subscribeToSearchInput() {
+    this.searchInput$
+      .pipe( debounceTime(300) )
+      .subscribe((searchTerm: string) => this.onSearch(searchTerm));
+  }
+
+  onSearchInput(event: any) {
+    const searchTerm = event.target.value;
+    this.searchInput$.next(searchTerm);
+  }
+
+  onSearch(searchTerm: string) {
     this.gamesPortion = this.gamesAll.filter((game: Game) =>
-      game.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+      game.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }
 
