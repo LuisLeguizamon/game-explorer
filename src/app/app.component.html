@@ -13,9 +13,15 @@
         [options] = "platformOptions"
         (optionSelected)="onSelect('platform', $event)">
       </app-select-filter>
+      <!-- Search by Genre -->
+      <app-select-filter
+        [searchType] = "'genre'"
+        [options] = "genreOptions"
+        (optionSelected)="onSelect('genre', $event)">
+      </app-select-filter>
 
       <!-- Search by Title -->
-      <div class="input-group input-group-md mb-3">
+      <div class="input-group input-group-md mt-3">
         <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="onSearch()" placeholder="Search">
       </div>
     </div>

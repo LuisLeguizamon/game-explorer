@@ -16,6 +16,8 @@ export class SelectFilterComponent {
   ngOnInit() {
     if (this.searchType == 'platform') {
       this.label = 'Platform';
+    } else if (this.searchType == 'genre') {
+      this.label = 'Genre';
     }
   }
 

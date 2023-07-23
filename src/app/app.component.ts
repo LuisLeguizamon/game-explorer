@@ -15,6 +15,7 @@ export class AppComponent {
   loading: boolean = true;
   pageSize: number = 10;
   searchTerm: string = '';
+  genreOptions: Array<any> = [];
   platformOptions: Array<any> = [];
   // searchTerm$ = new Subject<string>();TODO
 
@@ -31,6 +32,7 @@ export class AppComponent {
     .subscribe({
       next: (games) => {
         this.gamesAll = games;
+        this.genreOptions = Array.from(new Set(this.gamesAll.map((game: Game) => game.genre)));
         this.platformOptions = Array.from(new Set(this.gamesAll.map((game: Game) => game.platform)));
         this.gamesPortion = this.gamesAll.slice(0, this.pageSize);
       },
@@ -76,6 +78,10 @@ export class AppComponent {
     if (queryParamType == 'platform') {
       this.gamesPortion = this.gamesAll.filter((game: Game) =>
         game.platform.includes(optionSelected)
+      );
+    } else if (queryParamType == 'genre') {
+      this.gamesPortion = this.gamesAll.filter((game: Game) =>
+        game.genre.includes(optionSelected)
       );
     }
   }
