@@ -1,3 +1,4 @@
+import { Game } from './models/games.model';
 import { GameDataService } from './services/game-data.service';
 import { Component, HostListener } from '@angular/core';
 // import { Subject } from 'rxjs';
@@ -30,7 +31,7 @@ export class AppComponent {
     .subscribe({
       next: (games) => {
         this.gamesAll = games;
-        this.platformOptions = Array.from(new Set(this.gamesAll.map((game: any) => game.platform)));//TODO: interface for game
+        this.platformOptions = Array.from(new Set(this.gamesAll.map((game: Game) => game.platform)));
         this.gamesPortion = this.gamesAll.slice(0, this.pageSize);
       },
       error: (error) => {
@@ -66,14 +67,14 @@ export class AppComponent {
 
   // Filters
   onSearch() {
-    this.gamesPortion = this.gamesAll.filter((game: any) =>
+    this.gamesPortion = this.gamesAll.filter((game: Game) =>
       game.title.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
 
   onSelect(queryParamType: string, optionSelected: string) {
     if (queryParamType == 'platform') {
-      this.gamesPortion = this.gamesAll.filter((game: any) =>
+      this.gamesPortion = this.gamesAll.filter((game: Game) =>
         game.platform.includes(optionSelected)
       );
     }
