@@ -8,13 +8,15 @@ import { GameCardComponent } from './components/game-card/game-card.component';
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 import { FormsModule } from '@angular/forms';
 import { SelectFilterComponent } from './components/select-filter/select-filter.component';
+import { GameListComponent } from './pages/game-list/game-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameCardComponent,
     LoadingModalComponent,
-    SelectFilterComponent
+    SelectFilterComponent,
+    GameListComponent
   ],
   imports: [
     BrowserModule,
