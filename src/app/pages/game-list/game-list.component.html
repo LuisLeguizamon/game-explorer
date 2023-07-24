@@ -44,11 +44,13 @@
 
 <!-- Content -->
 <div *ngIf="!loading" class="row">
-    <ng-container *ngFor="let game of gamesPortion">
-        <app-game-card class="col-md-4 col-sm-1" [game]="game">
-        </app-game-card>
+    <ng-container *ngIf="!isObjectEmpty() else loadingResults">
+        <ng-container *ngFor="let game of gamesPortion">
+            <app-game-card class="col-md-4 col-sm-1" [game]="game">
+            </app-game-card>
+        </ng-container>
     </ng-container>
-    <ng-container *ngIf="isObjectEmpty()">
+    <ng-template #loadingResults>
         <h3 class="text-center">No results found</h3>
-    </ng-container>
+    </ng-template>
 </div>
