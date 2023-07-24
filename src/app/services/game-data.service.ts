@@ -8,11 +8,16 @@ export class GameDataService {
 
   constructor(private http: HttpClient) { }
 
-  getGames() {
+  getGames(queryParamType?: string, queryParam?: string) {
     const corsurl = 'https://cors-anywhere.herokuapp.com/';
     const baseurl = 'https://www.freetogame.com/api/';
     const endpoint = 'games';
-    const url = corsurl+baseurl+endpoint; 
+
+    let url = corsurl+baseurl+endpoint;
+
+    if (queryParamType == 'platform') {
+      url = url+'?platform='+queryParam;
+    }
 
     return this.http.get(url);
   }

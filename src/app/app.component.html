@@ -1,22 +1,5 @@
 <div class="g-background">
   <div class="container pt-5">
-
-    <h1 class="text-center mb-4">
-      Games
-    </h1>
-
-    <app-loading-modal *ngIf="loading">
-    </app-loading-modal>
-
-    <!-- Show the content when data is available and loading is complete -->
-    <div *ngIf="!loading" class="row">
-      <ng-container *ngFor="let game of gamesPortion">
-        <app-game-card
-          class="col-md-4 col-sm-1"
-          [game]="game">
-        </app-game-card>
-      </ng-container>
-    </div>
-
+    <app-game-list></app-game-list>
   </div>
 </div>

@@ -1,0 +1,46 @@
+<h1 class="text-center mb-4">
+    Games
+</h1>
+
+<!-- Filters -->
+<div class="mb-3 row">
+    <div class="col-md-3">
+        <!-- Search by Platform -->
+        <app-select-filter
+            [searchType]="'platform'"
+            [options]="platformOptions"
+            (optionSelected)="onSelect('platform', $event)">
+        </app-select-filter>
+    </div>
+    <div class="col-md-3">
+        <!-- Search by Genre -->
+        <app-select-filter
+            [searchType]="'genre'"
+            [options]="genreOptions"
+            (optionSelected)="onSelect('genre', $event)">
+        </app-select-filter>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <!-- Search by Title -->
+        <div class="input-group input-group-md">
+            <span class="input-group-text bg-white"><i class="bi bi-search fs-5"></i></span>
+            <input type="text" class="form-control border-start-0" (input)="onSearchInput($event)" placeholder="Search">
+        </div>
+    </div>
+</div>
+
+<!-- Loading -->
+<app-loading-modal *ngIf="loading">
+</app-loading-modal>
+
+<!-- Content -->
+<div *ngIf="!loading" class="row">
+    <ng-container *ngFor="let game of gamesPortion">
+        <app-game-card class="col-md-4 col-sm-1" [game]="game">
+        </app-game-card>
+    </ng-container>
+    <ng-container *ngIf="isObjectEmpty()">
+        <h3 class="text-center">No results found</h3>
+    </ng-container>
+</div>
