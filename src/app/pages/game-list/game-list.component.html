@@ -7,10 +7,10 @@
 
 <!-- Filters -->
 <div class="py-3 mb-3 row bg-white border border-white rounded shadow-sm">
-    <div class="col-md-3">
+    <div class="col-md-3 g-filter">
         <!-- Search by Platform -->
-        <div class="d-flex fs-3 me-2">
-            <i class="bi bi-controller mx-3 text-secondary"></i>
+        <div class="d-flex fs-3">
+            <i class="bi bi-controller me-2 text-secondary"></i>
             <app-select-filter
                 [searchType]="'platform'"
                 [options]="platformOptions"
@@ -18,10 +18,10 @@
             </app-select-filter>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 g-filter">
         <!-- Search by Genre -->
-        <div class="d-flex fs-3 me-2">
-            <i class="bi bi-grid mx-3 text-secondary"></i>
+        <div class="d-flex fs-3">
+            <i class="bi bi-grid me-2 text-secondary"></i>
             <app-select-filter
                 [searchType]="'genre'"
                 [options]="genreOptions"
