@@ -88,12 +88,15 @@ export class GameListComponent {
   }
 
   onSearch(searchTerm: string) {
+    this.loading = true;
     this.gamesPortion = this.gamesAll.filter((game: Game) =>
       game.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    setTimeout(() => this.hideLoading(), 300);
   }
 
   onSelect(queryParamType: string, optionSelected: string) {
+    this.loading = true;
     if (queryParamType == 'platform') {
       this.gamesPortion = this.gamesAll.filter((game: Game) =>
         game.platform.includes(optionSelected)
@@ -103,6 +106,11 @@ export class GameListComponent {
         game.genre.includes(optionSelected)
       );
     }
+    setTimeout(() => this.hideLoading(), 300);
+  }
+
+  hideLoading() {
+    this.loading = false;
   }
 
   isObjectEmpty(): boolean {
