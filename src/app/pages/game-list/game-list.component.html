@@ -6,25 +6,30 @@
 </div>
 
 <!-- Filters -->
-<div class="mb-3 row">
+<div class="py-3 mb-3 row bg-white border border-white rounded shadow-sm">
     <div class="col-md-3">
         <!-- Search by Platform -->
-        <app-select-filter
-            [searchType]="'platform'"
-            [options]="platformOptions"
-            (optionSelected)="onSelect('platform', $event)">
-        </app-select-filter>
+        <div class="d-flex fs-3 me-2">
+            <i class="bi bi-controller mx-3 text-secondary"></i>
+            <app-select-filter
+                [searchType]="'platform'"
+                [options]="platformOptions"
+                (optionSelected)="onSelect('platform', $event)">
+            </app-select-filter>
+        </div>
     </div>
     <div class="col-md-3">
         <!-- Search by Genre -->
-        <app-select-filter
-            [searchType]="'genre'"
-            [options]="genreOptions"
-            (optionSelected)="onSelect('genre', $event)">
-        </app-select-filter>
+        <div class="d-flex fs-3 me-2">
+            <i class="bi bi-grid mx-3 text-secondary"></i>
+            <app-select-filter
+                [searchType]="'genre'"
+                [options]="genreOptions"
+                (optionSelected)="onSelect('genre', $event)">
+            </app-select-filter>
+        </div>
     </div>
-    <div class="col-md-2"></div>
-    <div class="col-md-4">
+    <div class="offset-md-2 col-md-4">
         <!-- Search by Title -->
         <div class="input-group input-group-md">
             <span class="input-group-text bg-white"><i class="bi bi-search fs-5"></i></span>

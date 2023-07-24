@@ -1,4 +1,4 @@
-<select id="filterBy" class="form-select mb-3" (change)="onSelectChange($event.target)">
+<select id="filterBy" class="form-select" (change)="onSelectChange($event.target)">
     <option value="">All {{ label }}</option>
     <ng-container *ngFor="let option of options">
         <option value="{{ option }}">{{ option }}</option>
