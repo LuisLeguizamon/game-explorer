@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { SelectFilterComponent } from './components/select-filter/select-filter.component';
 import { GameListComponent } from './pages/game-list/game-list.component';
 import { GameDetailComponent } from './pages/game-detail/game-detail.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GameDetailComponent } from './pages/game-detail/game-detail.component';
     LoadingModalComponent,
     SelectFilterComponent,
     GameListComponent,
-    GameDetailComponent
+    GameDetailComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
