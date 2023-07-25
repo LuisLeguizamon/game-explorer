@@ -5,7 +5,7 @@ import { GameDetailComponent } from './pages/game-detail/game-detail.component';
 
 const routes: Routes = [
   { path: '', component: GameListComponent },
-  { path: 'game', component: GameDetailComponent },
+  { path: 'game/:id', component: GameDetailComponent },
 ];
 
 @NgModule({
