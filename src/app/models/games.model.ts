@@ -4,4 +4,5 @@ export interface Game {
     platform: String;
     genre: String;
     short_description: String;
+    thumbnail: String;
 }
