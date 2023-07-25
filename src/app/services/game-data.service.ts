@@ -21,4 +21,16 @@ export class GameDataService {
 
     return this.http.get(url);
   }
+
+  getGame(gameId: string) {
+    const corsurl = 'https://cors-anywhere.herokuapp.com/';
+    const baseurl = 'https://www.freetogame.com/api/';
+    const endpoint = 'game';
+
+    let url = corsurl+baseurl+endpoint;
+
+    url = url+'?id='+gameId;
+
+    return this.http.get(url);
+  }
 }

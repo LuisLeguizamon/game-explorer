@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class GameCardComponent {
   @Input() game: any;
+  @Input() viewDetailBtn?: boolean;
 }
