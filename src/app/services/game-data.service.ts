@@ -6,14 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GameDataService {
 
+  private corsUrl = 'https://cors-anywhere.herokuapp.com/';
+  private baseUrl = 'https://www.freetogame.com/api/';
+
   constructor(private http: HttpClient) { }
 
   getGames(queryParamType?: string, queryParam?: string) {
-    const corsurl = 'https://cors-anywhere.herokuapp.com/';
-    const baseurl = 'https://www.freetogame.com/api/';
     const endpoint = 'games';
-
-    let url = corsurl+baseurl+endpoint;
+    let url = this.corsUrl+this.baseUrl+endpoint;
 
     if (queryParamType == 'platform') {
       url = url+'?platform='+queryParam;
@@ -23,11 +23,8 @@ export class GameDataService {
   }
 
   getGame(gameId: string) {
-    const corsurl = 'https://cors-anywhere.herokuapp.com/';
-    const baseurl = 'https://www.freetogame.com/api/';
     const endpoint = 'game';
-
-    let url = corsurl+baseurl+endpoint;
+    let url = this.corsUrl+this.baseUrl+endpoint;
 
     url = url+'?id='+gameId;
 
