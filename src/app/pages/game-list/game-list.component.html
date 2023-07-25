@@ -46,7 +46,7 @@
 <div *ngIf="!loading" class="row">
     <ng-container *ngIf="!isObjectEmpty() else loadingResults">
         <ng-container *ngFor="let game of gamesPortion">
-            <app-game-card class="col-md-4 col-sm-1" [game]="game">
+            <app-game-card class="col-md-4 col-sm-1" [game]="game" [viewDetailBtn]="true">
             </app-game-card>
         </ng-container>
     </ng-container>
