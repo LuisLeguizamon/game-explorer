@@ -20,6 +20,8 @@ export class GameDetailComponent {
     thumbnail: ''
   };
 
+  loading: boolean = true;
+
   private gameId: any;
 
   constructor(private route: ActivatedRoute, private gameDataService: GameDataService){}
@@ -40,7 +42,7 @@ export class GameDetailComponent {
         console.log(error);
         alert("An error has ocurred");
       },
-      complete: () => console.log("complete"),
+      complete: () => this.loading = false,
     });
   }
 }
