@@ -1,5 +1,5 @@
 export interface Game {
-    id: BigInteger;
+    id: Number;
     title: String;
     platform: String;
     genre: String;
