@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameDataService {
 
-  private corsUrl = 'https://cors-anywhere.herokuapp.com/';
-  private baseUrl = 'https://www.freetogame.com/api/';
+  private baseUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
   getGames(queryParamType?: string, queryParam?: string) {
     const endpoint = 'games';
-    let url = this.corsUrl+this.baseUrl+endpoint;
+    let url = this.baseUrl+endpoint;
 
     if (queryParamType == 'platform') {
       url = url+'?platform='+queryParam;
@@ -24,7 +24,7 @@ export class GameDataService {
 
   getGame(gameId: string) {
     const endpoint = 'game';
-    let url = this.corsUrl+this.baseUrl+endpoint;
+    let url = this.baseUrl+endpoint;
 
     url = url+'?id='+gameId;
 
